@@ -24,12 +24,18 @@
     <ClCompile Include="Search_DataStruct.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Dynamic_Search_Table.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Static_Search_Table.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Search_DataStruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic_Search_Table.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include <string.h>
 
 enum Status{ Sucess = 1, Error = 0 };
+enum deplth{ LH = 1, EH = 0, RH = -1 };			//LE表示左子树深度比右子树深度多2
 
 //定义关键字的类型
 //typedef float KeyType;			//关键字为浮点数
@@ -33,6 +34,14 @@ typedef struct BiTNode
 	ElemType data;					//节点数据
 	struct BiTNode *lchild, *rchild;			//左右子树
 }BiTNode, *BiTree;
+
+//平衡二叉树的存储结构
+typedef struct BSTNode
+{
+	ElemType data;		//节点数据
+	deplth bf;				//平衡因子
+	struct BSTNode *lchild, *rchild;		//左右子树
+}BSTNode, *BSTtree;
 
 //比较函数，左边大，返回1；一样大，返回0；右边大，返回-1
 int Compare(int, int);
