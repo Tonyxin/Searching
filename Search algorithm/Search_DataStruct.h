@@ -43,6 +43,25 @@ typedef struct BSTNode
 	struct BSTNode *lchild, *rchild;		//左右子树
 }BSTNode, *BSTtree;
 
+
+//B-树的存储结构
+#define m 3								//B-树的阶，暂定为3（只支持m为奇数情况）
+#define Minus_Infinity -10000	//设置key[0]为负无穷
+typedef struct BTNode
+{
+	int keynum;							//节点中关键字的个数
+	struct BTNode *parent;			//指向双亲节点
+	KeyType key[m + 1];				//一个节点中最多有m-1个关键字，0号单元未用
+	struct BTNode *ptr[m + 1];	//子树指针向量
+}BTNode, *BTree;
+typedef struct
+{
+	BTNode* pt;							//指向找到的节点
+	int i;										//1..m，在节点中的关键字序号
+	bool flag;								//查找结果，1表示成功，0表示失败
+}Result;										//B-树查找结果类型
+
+
 //比较函数，左边大，返回1；一样大，返回0；右边大，返回-1
 int Compare(int, int);
 int Compare(float, float);

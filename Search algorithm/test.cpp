@@ -23,7 +23,6 @@ int main()
 	cout << "ÕÛ°ë²éÕÒ£º" << result2 << endl;
 	int result3 = Search_SecTree(ST, 50);
 	cout << "´ÎÓÅÊ÷²éÕÒ£º" << result3 << endl;
-	*/
 	BSTtree T = NULL;		//¶ş²æÅÅĞòÊ÷
 	bool taller = false;
 	for (int i = 1; i < 10; i++)
@@ -32,9 +31,25 @@ int main()
 	cout << T->rchild->data.key << endl;
 	cout << T->rchild->rchild->data.key << endl;
 	cout << T->lchild->lchild->data.key << endl;
-
 	//DeleteBST(T, ST.elem[3]);
 	//cout << T->rchild->rchild->data.key << endl;
+	*/
+
+	BTree Root=new BTNode;
+	Root->keynum = 1;
+	Root->parent = NULL;
+	Root->key[0] = 0;
+	Root->key[1] = ST.elem[1].key;
+	Root->ptr[0] = NULL;
+	Root->ptr[1] = NULL;
+	for (int i = 2; i < 100; i++)
+	{
+		Result m_result;
+		if (!SearchBTree(Root, ST.elem[i].key, m_result))
+			InsertBTree(Root, m_result.pt, ST.elem[i].key, m_result.i, NULL, NULL);
+		cout << Root->key[1] << endl;
+	}
+	
 
 	delete[] ST.elem;
 	return 0;
