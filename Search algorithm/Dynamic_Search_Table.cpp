@@ -1,6 +1,6 @@
 #include "Dynamic_Search_Table.h"
 
-//-------------------------------------¶ş²æÅÅĞòÊ÷------------------------------------------------
+//-----------------------------------------¶ş²æÅÅĞòÊ÷------------------------------------------------
 /*¶ş²æÅÅĞòÊ÷£º1¡¢Èô×ó×ÓÊ÷²»¿Õ£¬Ôò×ó×ÓÊ÷ÉÏËùÓĞ½áµãÖµĞ¡ÓÚ¸ù½Úµã£»		
 *					 2¡¢ÈôÓÒ×ÓÊ÷²»¿Õ£¬ÔòÓÒ×ÓÊ÷ÉÏËùÓĞ½áµãÖµ´óÓÚ¸ù½Úµã£»
 *					 3¡¢×óÓÒ×ÓÊ÷Ò²·Ö±ğÎª¶ş²æÅÅĞòÊ÷
@@ -23,7 +23,7 @@ Status SearchBST(BiTree T, KeyType key, BiTree &f, BiTree &p)		//ÔÚÏÖÓĞµÄ¶ş²æÅÅĞ
 		if (tmp == 0)					//¸ù½Úµã¹Ø¼ü×ÖµÈÓÚÄ¿±ê¹Ø¼ü×Ö£¬pÖ¸ÏòT£¬·µ»ØSuccess
 		{
 			p = T;
-			return Sucess;
+			return Success;
 		}
 		else if (tmp > 0)				//¸ù½Úµã¹Ø¼ü×Ö´óÓÚÄ¿±ê¹Ø¼ü×Ö£¬µİ¹éµ½×ó×ÓÊ÷½øĞĞ²éÕÒ
 		{
@@ -60,7 +60,7 @@ Status InsertBST(BiTree &T, ElemType e)				//Ïò¶ş²æÅÅĞòÊ÷ÖĞ²åÈë½Úµã
 			else
 				p->rchild = NewNode;					//¸ù½Úµã¹Ø¼ü×ÖĞ¡ÓÚÄ¿±ê¹Ø¼ü×Ö£¬³ÆÎªÓÒº¢×Ó
 		}
-		return Sucess;
+		return Success;
 	}
 }
 Status DeleteBST(BiTree &T, ElemType e)		//Ïò¶ş²æÅÅĞòÊ÷ÖĞÉ¾³ıÄ³Ò»½áµã
@@ -89,7 +89,7 @@ Status DeleteBST(BiTree &T, ElemType e)		//Ïò¶ş²æÅÅĞòÊ÷ÖĞÉ¾³ıÄ³Ò»½áµã
 		else                                 //pÎªfµÄÓÒº¢×Ó
 			f->rchild = q;
 		delete p;
-		return Sucess;
+		return Success;
 	}
 	else
 		return Error;				//Ã»ÓĞ²éÕÒµ½¸Ã¹Ø¼ü×Ö£¬·µ»ØError
@@ -255,7 +255,7 @@ Status InsertAVL(BSTtree &T, ElemType e, bool &taller)		//ÔÚÆ½ºâ¶ş²æÊ÷ÖĞ²åÈë½Úµã
 			}//if
 		}//else
 	}//else 
-	return Sucess;
+	return Success;
 }
 
 //-----------------------------------------------B-Ê÷-------------------------------------------------
@@ -287,7 +287,7 @@ Status SearchBTree(BTree T, KeyType key, Result &m_result)			//ÔÚB-Ê÷ÖĞÑ°ÕÒÄ¿±ê¹
 				m_result.pt = T;
 				m_result.i = i;
 				m_result.flag = 1;
-				return Sucess;
+				return Success;
 			}
 			if (tmp > 0)							//¸Ã½ÚµãÕÒ²»µ½£¬ÍùÏÂÒ»¸ö½ÚµãÑ°ÕÒ£¬µ«±£´æ¸Ã½ÚµãÖ¸Õë£¬±ÈÒª²éÕÒ¹Ø¼ü×ÖÉÔĞ¡µÄ¹Ø¼ü×ÖĞòºÅ£¬±êÖ¾ÖÃ0
 			{
@@ -363,7 +363,7 @@ Status InsertBTree(BTree &Root, BTree T, KeyType key, int position, BTree T_righ
 		Root = T;
 		T_left->parent = Root;
 		T_right->parent = Root;
-		return Sucess;
+		return Success;
 	}
 	else
 	{
@@ -416,7 +416,7 @@ Status InsertBTree(BTree &Root, BTree T, KeyType key, int position, BTree T_righ
 			return InsertBTree(Root, parent, key, m_result.i, NewTreeRight, NewTreeLeft);		//½«key[m/2]µİ¹é²åÈëµ½ÉÏÒ»¸ö½Úµã
 		}//if
 		else
-			return Sucess;
+			return Success;
 	}//else
 }
 Status DeleteBTree(BTree &Root, BTree T, int position)				//RootÎª¸ù½Úµã£¬ÔÚ½ÚµãTÉÏÉ¾³ı¹Ø¼ü×ÖKey[position]
@@ -441,7 +441,7 @@ Status DeleteBTree(BTree &Root, BTree T, int position)				//RootÎª¸ù½Úµã£¬ÔÚ½Úµã
 				T->key[i] = T->key[i + 1];		//¸ÃÎ»ÖÃÖ®ºóµÄ¹Ø¼ü×ÖÓëÖ¸ÕëÏòÇ°¸²¸Ç£¬É¾³ı¸ÃÎ»ÖÃ´¦µÄ¹Ø¼ü×ÖÓëÖ¸Õë
 			T->key[T->keynum] = 0;
 			T->keynum--;		//½ÚµãµÄ¹Ø¼ü×ÖÊı¼õ1		
-			return Sucess;
+			return Success;
 		}//if
 		else
 		{
@@ -558,10 +558,35 @@ Status DeleteBT_LackKey(BTree &Root, BTree T, int position, int father_position)
 				}
 				delete T;
 			}
-			return Sucess;
+			return Success;
 		}
 	}//if-¸Ã½Úµã¹Ø¼ü×ÖÊı²»¹»
 	else
-		return Sucess;
+		return Success;
 }
+
+//---------------------------------------------¹şÏ£±í-------------------------------------------------
+Status SearchHash(HashTable hash_table, ElemType e, int &index)		//²éÕÒ¹Ø¼ü×Ö
+{
+	/*ÔÚ¹şÏ£±íÖĞ²éÕÒ¹Ø¼ü×Ö£¬·µ»Ø²éÕÒÊÇ·ñ³É¹¦µÄ±êÖ¾£¬·µ»Ø¹Ø¼ü×ÖËùÔÚµÄÁ´±íË÷Òı
+	*/
+	LinkList result;
+	index = e.key / hashsize;		//¹şÏ£±íµÄË÷Òı
+	if (SearchNode(hash_table.hash[index], e.key, result))
+		return Success;				//·µ»Ø²éÕÒ³É¹¦
+	else
+		return Error;					//·µ»Ø²éÕÒÊ§°Ü
+}
+Status InsertHash(HashTable hash_table, ElemType e)			//²åÈë¹Ø¼ü×Ö
+{
+	int index = e.key / hashsize;		//¹şÏ£±íµÄË÷Òı
+	return InsertNode(hash_table.hash[index], e.key);
+}
+
+Status DeleteHash(HashTable hash_table, ElemType e)			//É¾³ı¹Ø¼ü×Ö
+{
+	int index = e.key / hashsize;		//¹şÏ£±íµÄË÷Òı
+	return DeleteNode(hash_table.hash[index], e.key);
+}
+
 

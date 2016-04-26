@@ -4,8 +4,8 @@
 #include <math.h>
 #include <string.h>
 
-enum Status{ Sucess = 1, Error = 0 };
-enum deplth{ LH = 1, EH = 0, RH = -1 };			//LE表示左子树深度比右子树深度多2
+enum Status{ Success = 1, Error = 0, Duplicate = -1 };
+enum deplth{ LH = 1, EH = 0, RH = -1 };				//LE表示左子树深度比右子树深度多2
 
 //定义关键字的类型
 //typedef float KeyType;			//关键字为浮点数
@@ -61,10 +61,28 @@ typedef struct
 	bool flag;								//查找结果，1表示成功，0表示失败
 }Result;										//B-树查找结果类型
 
+//哈希表的存储结构
+typedef struct LinkNode
+{
+	LinkNode *last;				//指针域，指向链表的上一节点
+	ElemType elem;				//数据域，存储有关键字
+	LinkNode *next;			//指针域，指向链表的下一节点
+}LinkNode, *LinkList;
+#define hashsize 100	//哈希表的存储容量
+typedef struct
+{
+	LinkList hash[hashsize];		//采用链接法解决冲突
+}HashTable;
+
 
 //比较函数，左边大，返回1；一样大，返回0；右边大，返回-1
 int Compare(int, int);
 int Compare(float, float);
 int Compare(char*, char*);
+
+//对于链表的操作函数，成功返回Success，失败返回Error
+Status SearchNode(LinkList L, KeyType key, LinkList &LResult);			//在链表中查找关键字所在的节点
+Status InsertNode(LinkList L, KeyType key);			//在链表中插入节点
+Status DeleteNode(LinkList L, KeyType key);			//在链表中删除节点
 
 #endif
